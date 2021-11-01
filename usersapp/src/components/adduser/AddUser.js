@@ -6,8 +6,19 @@ import Button from '../button/Button'
 const AddUser = () => {
   const [username, setUserName] = useState('')
   const [age, setAge] = useState(0)
+
   const addUserSubmit = (e) => {
     e.preventDefault()
+    if (username.trim().length === 0) {
+      return
+    }
+    if (+age < 0) {
+      return
+    }
+    console.log(username)
+    console.log(age)
+    setUserName('')
+    setAge(0)
   }
   const usernameChange = (e) => {
     setUserName(e.target.value)
