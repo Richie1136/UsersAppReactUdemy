@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Card from '../card/Card'
 import './AddUser.css'
+import Button from '../button/Button'
 
 const AddUser = () => {
   const [username, setUserName] = useState('')
@@ -21,7 +22,7 @@ const AddUser = () => {
         <input id='username' type='text' value={username} onChange={usernameChange} />
         <label htmlFor='age'>Age</label>
         <input id='age' type='number' value={age} onChange={ageChange} />
-        <button type='submit'>Add User</button>
+        <Button type='submit'>Add User</Button>
       </form>
     </Card>
   )
