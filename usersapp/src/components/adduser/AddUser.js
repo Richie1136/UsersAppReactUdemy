@@ -3,7 +3,7 @@ import Card from '../card/Card'
 import './AddUser.css'
 import Button from '../button/Button'
 
-const AddUser = () => {
+const AddUser = ({ onadduser }) => {
   const [username, setUserName] = useState('')
   const [age, setAge] = useState(0)
 
@@ -15,8 +15,7 @@ const AddUser = () => {
     if (+age < 0) {
       return
     }
-    console.log(username)
-    console.log(age)
+    onadduser(username, age)
     setUserName('')
     setAge(0)
   }
