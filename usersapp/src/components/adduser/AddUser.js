@@ -7,8 +7,6 @@ import ErrorModal from '../modal/ErrorModal'
 const AddUser = ({ onadduser }) => {
   const nameInputRef = useRef()
   const ageInputRef = useRef()
-  const [username, setUserName] = useState('')
-  const [age, setAge] = useState(0)
   const [error, setError] = useState()
 
   const addUserSubmit = (e) => {
@@ -24,14 +22,6 @@ const AddUser = ({ onadduser }) => {
       return
     }
     onadduser(Name, Age)
-    setUserName('')
-    setAge(0)
-  }
-  const usernameChange = (e) => {
-    setUserName(e.target.value)
-  }
-  const ageChange = (e) => {
-    setAge(e.target.value)
   }
 
   const errorHandler = () => {
@@ -44,13 +34,9 @@ const AddUser = ({ onadduser }) => {
         <form onSubmit={addUserSubmit}>
           <label htmlFor='username'>Username</label>
           <input id='username' type='text'
-            value={username}
-            onChange={usernameChange}
             ref={nameInputRef} />
           <label htmlFor='age'>Age</label>
           <input id='age' type='number'
-            value={age}
-            onChange={ageChange}
             ref={ageInputRef} />
           <Button type='submit'>Add User</Button>
         </form>
