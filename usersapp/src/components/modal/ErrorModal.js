@@ -3,11 +3,11 @@ import Card from '../card/Card'
 import Button from '../button/Button'
 import './ErrorModal.css'
 
-const ErrorModal = ({ title, message }) => {
+const ErrorModal = ({ title, message, onerrorHandler }) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   return (
     <div>
-      <div className='backdrop' />
+      <div className='backdrop' onClick={onerrorHandler} />
       <Card classname='modal'>
         <header className='header'>
           <h2>{title}</h2>
@@ -16,7 +16,7 @@ const ErrorModal = ({ title, message }) => {
           <p>{message}</p>
         </div>
         <footer className='actions'>
-          <Button>OK</Button>
+          <Button onClick={onerrorHandler}>OK</Button>
         </footer>
       </Card>
     </div>

@@ -29,9 +29,13 @@ const AddUser = ({ onadduser }) => {
   const ageChange = (e) => {
     setAge(e.target.value)
   }
+
+  const errorHandler = () => {
+    setError(null)
+  }
   return (
     <>
-      {error && <ErrorModal title={error.title} message={error.message} />}
+      {error && <ErrorModal title={error.title} message={error.message} onerrorHandler={errorHandler} />}
       <Card classname='input'>
         <form onSubmit={addUserSubmit}>
           <label htmlFor='username'>Username</label>
