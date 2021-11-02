@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Card from '../card/Card'
 import './AddUser.css'
 import Button from '../button/Button'
+import Modal from '../modal/Modal'
 
 const AddUser = ({ onadduser }) => {
   const [username, setUserName] = useState('')
@@ -26,15 +27,18 @@ const AddUser = ({ onadduser }) => {
     setAge(e.target.value)
   }
   return (
-    <Card classname='input'>
-      <form onSubmit={addUserSubmit}>
-        <label htmlFor='username'>Username</label>
-        <input id='username' type='text' value={username} onChange={usernameChange} />
-        <label htmlFor='age'>Age</label>
-        <input id='age' type='number' value={age} onChange={ageChange} />
-        <Button type='submit'>Add User</Button>
-      </form>
-    </Card>
+    <>
+      <Modal title='Error' message='Something went wrong' />
+      <Card classname='input'>
+        <form onSubmit={addUserSubmit}>
+          <label htmlFor='username'>Username</label>
+          <input id='username' type='text' value={username} onChange={usernameChange} />
+          <label htmlFor='age'>Age</label>
+          <input id='age' type='number' value={age} onChange={ageChange} />
+          <Button type='submit'>Add User</Button>
+        </form>
+      </Card>
+    </>
   )
 }
 
