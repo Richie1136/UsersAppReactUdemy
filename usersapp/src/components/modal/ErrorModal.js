@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Card from '../card/Card'
 import Button from '../button/Button'
 import './ErrorModal.css'
 
 const ErrorModal = ({ title, message, onerrorHandler }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false)
   return (
     <div>
       <div className='backdrop' onClick={onerrorHandler} />
